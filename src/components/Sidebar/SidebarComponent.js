@@ -4,14 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import LogoComponent from './LogoComponent';
 import MenuItemComponent from './MenuItemComponent';
 import IconOverview from '../../assets/icon-overview.js';
-import IconTickets from '../../assets/icon-tickets.js';
-import IconIdeas from '../../assets/icon-ideas.js';
-import IconContacts from '../../assets/icon-contacts';
-import IconAgents from '../../assets/icon-agents';
-import IconArticles from '../../assets/icon-articles';
-import IconSettings from '../../assets/icon-settings';
-import IconSubscription from '../../assets/icon-subscription';
-import IconBurger from '../../assets/icon-burger';
+import IconTree from '../../assets/icon-tree';
 
 const styles = StyleSheet.create({
     burgerIcon: {
@@ -85,19 +78,13 @@ const SidebarComponent = (props) => {
 
   const toggleMenu = () => setState(prevState => ({ expanded: !prevState.expanded }));
 
-  const renderBurger = () => {
-    return <div onClick={this.toggleMenu} className={css(styles.burgerIcon)}>
-      <IconBurger />
-    </div>
-  }
-
   const { expanded } = state;
   isMobile = isMobile();
 
   return (
     <div style={{ position: 'relative' }}>
       <Row className={css(styles.mainContainer)} breakpoints={{ 768: css(styles.mainContainerMobile, expanded && styles.mainContainerExpanded) }}>
-        {(isMobile && !expanded) && renderBurger()}
+        {(isMobile && !expanded)}
         <Column className={css(styles.container)} breakpoints={{ 768: css(styles.containerMobile, expanded ? styles.show : styles.hide) }}>
           <LogoComponent />
           <Column className={css(styles.menuItemList)}>
@@ -107,35 +94,10 @@ const SidebarComponent = (props) => {
               active={props.selectedItem === 'Overview'}
             />
             <MenuItemComponent
-              title="Tickets" icon={IconTickets}
-              onClick={() => onItemClicked('Tickets')}
-              active={props.selectedItem === 'Tickets'}
+              title="Tickets" icon={IconTree}
+              onClick={() => onItemClicked('BinaryTree')}
+              active={props.selectedItem === 'BinaryTree'}
             />
-            <MenuItemComponent
-              title="Ideas" icon={IconIdeas}
-              onClick={() => onItemClicked('Ideas')}
-              active={props.selectedItem === 'Ideas'} />
-            <MenuItemComponent
-              title="Contacts" icon={IconContacts}
-              onClick={() => onItemClicked('Contacts')}
-              active={props.selectedItem === 'Contacts'} />
-            <MenuItemComponent
-              title="Agents" icon={IconAgents}
-              onClick={() => onItemClicked('Agents')}
-              active={props.selectedItem === 'Agents'} />
-            <MenuItemComponent
-              title="Articles" icon={IconArticles}
-              onClick={() => onItemClicked('Articles')}
-              active={props.selectedItem === 'Articles'} />
-            <div className={css(styles.separator)}></div>
-            <MenuItemComponent
-              title="Settings" icon={IconSettings}
-              onClick={() => onItemClicked('Settings')}
-              active={props.selectedItem === 'Settings'} />
-            <MenuItemComponent
-              title="Subscription" icon={IconSubscription}
-              onClick={() => onItemClicked('Subscription')}
-              active={props.selectedItem === 'Subscription'} />
           </Column>
         </Column>
         {isMobile && expanded && <div className={css(styles.outsideLayer)} onClick={toggleMenu}></div>}

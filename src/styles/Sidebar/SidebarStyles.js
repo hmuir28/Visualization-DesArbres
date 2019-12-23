@@ -9,13 +9,13 @@ export default ({
     backgroundColor: '#363740',
     width: 255,
     paddingTop: 32,
-    height: 'calc(100% - 32px)'
+    height: 'calc(100% - 0px)'
   },
   containerMobile: {
     transition: 'left 0.5s, right 0.5s',
     position: 'absolute',
     width: 255,
-    height: 'calc(100% - 32px)',
+    height: 'calc(100% - 0px)',
     zIndex: 901
   },
   mainContainer: {

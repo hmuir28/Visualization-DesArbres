@@ -40,7 +40,7 @@ const SidebarComponent = (props) => {
               active={props.selectedItem === 'Overview'}
             />
             <MenuItemComponent
-              title="Tickets" icon={IconTree}
+              title="Binary Tree" icon={IconTree}
               onClick={() => onItemClicked('BinaryTree')}
               active={props.selectedItem === 'BinaryTree'}
             />
